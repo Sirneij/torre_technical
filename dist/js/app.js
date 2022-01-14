@@ -24,3 +24,17 @@ const searchBarIsActive = () => navbarForm.classList.toggle("active");
 
 navbarSearchBtn.addEventListener("click", searchBarIsActive);
 navbarFormCloseBtn.addEventListener("click", searchBarIsActive);
+
+const accordion = document.getElementsByClassName("accordion");
+
+for (let i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener("click", function () {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    let panel = this.nextElementSibling;
+    panel.classList.toggle("active");
+  });
+}
