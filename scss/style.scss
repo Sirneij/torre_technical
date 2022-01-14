@@ -439,18 +439,6 @@ nav {
   --ionicon-stroke-width: 50px;
 }
 
-.user-card .play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(var(--scale));
-}
-
-.user-card .play ion-icon {
-  font-size: 3.75rem;
-  --ionicon-stroke-width: 1.25rem;
-}
-
 .user-card:hover :is(.bookmark, .rating, .play) {
   --scale: 1;
 }
@@ -516,6 +504,12 @@ nav {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
     background 0.3s ease-in-out;
   overflow: hidden;
+}
+.card-body .panel {
+  margin-top: -0.6rem;
+  max-width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .panel.active {
   display: block;
@@ -584,6 +578,12 @@ nav {
   overflow: hidden;
   padding: 0;
 }
+.card-body .tags {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
 .tags li {
   float: left;
@@ -638,9 +638,9 @@ nav {
   background-color: #00356b;
   color: white;
 }
-.mt-1 {
-  margin-top: 1rem;
-}
+// .mt-1 {
+//   margin-top: 1rem;
+// }
 
 .tag:hover .value {
   background: var(--oxford-blue);
@@ -650,7 +650,7 @@ nav {
   border-left-color: #00356b;
 }
 .mt-1.tag {
-  visibility: hidden;
+  display: none;
 }
 .active {
   color: #fff;
@@ -845,7 +845,7 @@ footer {
   }
 
   .mt-1.tag {
-    visibility: visible;
+    display: inline-block;
   }
 }
 
