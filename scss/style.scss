@@ -296,6 +296,9 @@ nav {
   font-size: var(--fs-sm);
   font-weight: var(--fw-5);
 }
+.navbar-form-search:focus-within {
+  border-radius: 0.9375rem 0.9375rem 0 0;
+}
 
 .navbar-form-btn {
   background: var(--oxford-blue);
@@ -314,6 +317,37 @@ nav {
 .navbar-form-btn:hover ion-icon,
 .navbar-form-search::placeholder {
   color: var(--off-white);
+}
+.navbar-form .autocomplete {
+  position: absolute;
+  background: var(--oxford-blue);
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.9375rem 0.9375rem;
+  color: var(--off-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-5);
+  max-height: 200px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+.autocomplete .suggestions {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem;
+  transition: background 0.3s;
+}
+.autocomplete .suggestions:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.autocomplete .suggestions:hover {
+  background: var(--rich-black-fogra-30);
+}
+
+.navbar-form-search:focus ~ .autocomplete {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /**
@@ -506,6 +540,7 @@ nav {
   overflow: hidden;
 }
 .card-body .panel {
+  text-align: justify;
   margin-top: -0.6rem;
   max-width: 100%;
   padding-left: 2rem;
@@ -822,7 +857,10 @@ footer {
   .navbar-form-btn {
     right: 5rem;
   }
-
+  .navbar-form .autocomplete {
+    top: 70%;
+    width: calc(100% - 2.5rem);
+  }
   .navbar-form-close {
     display: block;
     padding-top: 4px;
@@ -910,6 +948,9 @@ footer {
 
   .navbar-form-search {
     margin-right: 1.25rem;
+  }
+  .navbar-form .autocomplete {
+    width: calc(100% - 2.5rem);
   }
 
   .navbar-form-btn {
